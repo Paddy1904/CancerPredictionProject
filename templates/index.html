@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Breast Cancer Prediction</title>
+    <style>
+        body { font-family: Arial; background-color: #f7f7f7; }
+        .container {
+            width: 400px; margin: auto; margin-top: 50px; background: white;
+            padding: 30px; border-radius: 10px; box-shadow: 0px 0px 10px #ccc;
+        }
+        input { width: 100%; padding: 8px; margin-bottom: 10px; }
+        button { background-color: #007bff; color: white; border: none; padding: 10px; width: 100%; border-radius: 5px; }
+        h2 { text-align: center; }
+        .result { text-align: center; margin-top: 15px; font-weight: bold; color: #333; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Breast Cancer Prediction</h2>
+        <form action="/predict" method="POST">
+            <input type="number" step="any" name="texture_mean" placeholder="Texture Mean" required>
+            <input type="number" step="any" name="smoothness_mean" placeholder="Smoothness Mean" required>
+            <input type="number" step="any" name="compactness_mean" placeholder="Compactness Mean" required>
+            <input type="number" step="any" name="concave_points_mean" placeholder="Concave Points Mean" required>
+            <input type="number" step="any" name="symmetry_mean" placeholder="Symmetry Mean" required>
+            <input type="number" step="any" name="fractal_dimension_mean" placeholder="Fractal Dimension Mean" required>
+            <input type="number" step="any" name="texture_se" placeholder="Texture SE" required>
+            <input type="number" step="any" name="area_se" placeholder="Area SE" required>
+            <input type="number" step="any" name="smoothness_se" placeholder="Smoothness SE" required>
+            <input type="number" step="any" name="compactness_se" placeholder="Compactness SE" required>
+            <input type="number" step="any" name="concavity_se" placeholder="Concavity SE" required>
+            <input type="number" step="any" name="concave_points_se" placeholder="Concave Points SE" required>
+            <input type="number" step="any" name="symmetry_se" placeholder="Symmetry SE" required>
+            <input type="number" step="any" name="fractal_dimension_se" placeholder="Fractal Dimension SE" required>
+            <input type="number" step="any" name="texture_worst" placeholder="Texture Worst" required>
+            <input type="number" step="any" name="area_worst" placeholder="Area Worst" required>
+            <input type="number" step="any" name="smoothness_worst" placeholder="Smoothness Worst" required>
+            <input type="number" step="any" name="compactness_worst" placeholder="Compactness Worst" required>
+            <input type="number" step="any" name="concavity_worst" placeholder="Concavity Worst" required>
+            <input type="number" step="any" name="concave_points_worst" placeholder="Concave Points Worst" required>
+            <input type="number" step="any" name="symmetry_worst" placeholder="Symmetry Worst" required>
+            <input type="number" step="any" name="fractal_dimension_worst" placeholder="Fractal Dimension Worst" required>
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction_text %}
+            <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
